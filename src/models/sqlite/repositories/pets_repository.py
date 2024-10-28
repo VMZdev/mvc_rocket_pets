@@ -1,8 +1,9 @@
 from typing import List
 from sqlalchemy.orm.exc import NoResultFound
 from src.models.sqlite.entities.pets import PetsTable
+from src.models.sqlite.interfaces.pets_repository import PetsRepositoryInterface
 
-class PetsRepository:
+class PetsRepository(PetsRepositoryInterface): # Essa dependência do pai faz com que obrigue a classe a definir os metodos de "list" e "delete"
     def __init__(self, db_connection) -> None:
         self.__dbconnection = db_connection
 
